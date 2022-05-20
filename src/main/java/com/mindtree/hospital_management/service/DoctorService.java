@@ -15,7 +15,8 @@ import java.util.stream.StreamSupport;
 @Service
 public class DoctorService {
     private final DoctorRepository doctorRepository;
-    private final PatientService patientService;
+    private PatientService patientService;
+
 
     @Autowired
     public DoctorService(DoctorRepository doctorRepository, PatientService patientService){
@@ -39,8 +40,10 @@ public class DoctorService {
     }
     @Transactional
     public Doctor addPatientToDoctor(Long doctorId,Long patientId){
+
         Doctor doctor = getDoctor(doctorId);
         Patient patient = patientService.getPatient(patientId);
+
 
         doctor.addPatient(patient);
         patient.setDoctor(doctor);

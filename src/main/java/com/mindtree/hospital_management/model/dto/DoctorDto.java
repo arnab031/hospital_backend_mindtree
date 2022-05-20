@@ -1,6 +1,7 @@
 package com.mindtree.hospital_management.model.dto;
 
 import com.mindtree.hospital_management.model.Doctor;
+import lombok.Builder;
 import lombok.Data;
 
 import java.util.ArrayList;

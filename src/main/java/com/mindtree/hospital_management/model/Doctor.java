@@ -2,6 +2,7 @@ package com.mindtree.hospital_management.model;
 
 import com.mindtree.hospital_management.model.dto.DoctorDto;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -12,6 +13,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @Entity
 @Table(name = "Doctor")
 public class Doctor {
@@ -35,6 +37,7 @@ public class Doctor {
     }
     public static Doctor from(DoctorDto doctorDto){
         Doctor doctor = new Doctor();
+        doctor.setId(doctorDto.getId());
         doctor.setName(doctorDto.getName());
         doctor.setAge(doctorDto.getAge());
         doctor.setGender(doctorDto.getGender());

@@ -5,6 +5,7 @@ import com.mindtree.hospital_management.model.dto.DoctorDto;
 import com.mindtree.hospital_management.model.dto.PatientDto;
 import com.mindtree.hospital_management.repository.DoctorRepository;
 import com.mindtree.hospital_management.service.DoctorService;
+import lombok.Builder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,7 +29,7 @@ public class DoctorController {
     @PostMapping
     public ResponseEntity<DoctorDto> addDoctor(@RequestBody final DoctorDto doctorDto){
         Doctor doctor = doctorService.addDoctor(Doctor.from(doctorDto));
-        return new ResponseEntity<>(DoctorDto.from(doctor),HttpStatus.OK);
+        return new ResponseEntity<>(DoctorDto.from(doctor),HttpStatus.CREATED);
     }
 
     @GetMapping
